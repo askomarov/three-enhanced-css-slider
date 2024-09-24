@@ -10,4 +10,26 @@ const getRandomColor = () => {
   return randomColor;
 };
 
-export { getRandomColor }
+function createRandomString(length) {
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%&";
+  let result = "";
+  const randomArray = new Uint8Array(length);
+  crypto.getRandomValues(randomArray);
+  randomArray.forEach((number) => {
+    if (Math.random()> 0.95) {
+      result += '<strong>'+chars[number % chars.length]+'</strong>';
+      result += ' '
+    } else {
+      result += chars[number % chars.length];
+      result += ' '
+    }
+  });
+  return result;
+}
+
+function getRandomFromRange(start, end) {
+  let r = Math.random();
+  return r * (end - start) + start;
+}
+
+export { getRandomColor, createRandomString, getRandomFromRange }
