@@ -47,7 +47,7 @@ class Sketch {
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this.renderer2.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     this.renderer2.setSize(this.container2.offsetWidth, this.container2.offsetHeight);
-    console.log(this.renderer2);
+
     if (this.container2) {
       this.container2.appendChild(this.renderer2.domElement);
     } else {
@@ -207,14 +207,10 @@ class Sketch {
   onWindowResize() {
     this.width = this.container.offsetWidth;
     this.height = this.container.offsetHeight;
-    console.log(this.width);
     this.renderer.setSize(this.width,this.height);
-    console.log(this.container2.offsetWidth);
 
     this.renderer2.setSize(this.container2.offsetWidth,this.container2.offsetHeight);
     this.camera.aspect = this.width/this.height;
-    console.log(this.width);
-
     this.camera.updateProjectionMatrix();
   }
 
